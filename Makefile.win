@@ -1,0 +1,40 @@
+# Project: ÖÐÒ©¿â´æÔ¤¾¯ÏµÍ³
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = medicine_management.o ordered_list.o warning_logic.o main.o circular_queue.o
+LINKOBJ  = medicine_management.o ordered_list.o warning_logic.o main.o circular_queue.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ÖÐÒ©¿â´æÔ¤¾¯ÏµÍ³.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+medicine_management.o: medicine_management.cpp
+	$(CPP) -c medicine_management.cpp -o medicine_management.o $(CXXFLAGS)
+
+ordered_list.o: ordered_list.cpp
+	$(CPP) -c ordered_list.cpp -o ordered_list.o $(CXXFLAGS)
+
+warning_logic.o: warning_logic.cpp
+	$(CPP) -c warning_logic.cpp -o warning_logic.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+circular_queue.o: circular_queue.cpp
+	$(CPP) -c circular_queue.cpp -o circular_queue.o $(CXXFLAGS)
